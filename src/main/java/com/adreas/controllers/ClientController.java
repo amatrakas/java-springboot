@@ -30,16 +30,12 @@ public class ClientController {
 
     @PostMapping("/client")
     public String submitForm(HttpServletRequest request, Model model, @ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
-      // if(bindingResult.hasErrors()) {
-       //
         boolean hasErrors = bindingResult.hasErrors();
-
         if (hasErrors){
             client.setSave("Exei ERROR");
         }else {
             client.setSave("DEN EXEI ERROR");
         }
-
        request.setAttribute("postresult",hasErrors);
        model.addAttribute("success",goodWork);
 
