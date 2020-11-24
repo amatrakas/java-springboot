@@ -24,7 +24,6 @@ public class RegisterController {
     public String submitForm(Model model, @ModelAttribute("user") User user) throws Exception {
 
         System.out.println(user);
-
         String writer = "epituxia apothikeushs";
 
         String file = "C:/Users/antre/" + "adreas.txt";
@@ -35,7 +34,6 @@ public class RegisterController {
 
         if (!isCorrect) {
             try {
-                //  save this to a file
                 Util save = new Util();
                 save.saveEachUser("C:/Users/antre/" + "adreas.txt", user);
 
@@ -48,5 +46,6 @@ public class RegisterController {
             System.out.println("User already exists");
         }
         return "register_success";
+        //tell me about it
     }
 }

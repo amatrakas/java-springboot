@@ -9,7 +9,7 @@ public class User {
         private String password;
         private int phone;
         private String email;
-        private String id;
+        private String idboolean gjj;
 
 
 
