@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 @Controller
 
 public class RegisterController {
@@ -34,19 +31,20 @@ public class RegisterController {
 
         Util adreas = new Util();
 
-        boolean isCorrect = adreas.ifUserExists(file,user);
+        boolean isCorrect = adreas.ifUserExists(file, user);
 
-        if(!isCorrect){
+        if (!isCorrect) {
             try {
-
+                //  save this to a file
                 Util save = new Util();
-                save.saveEachUser("C:/Users/antre/" + "adreas.txt",user);
-            }catch (Exception e){
+                save.saveEachUser("C:/Users/antre/" + "adreas.txt", user);
+
+            } catch (Exception e) {
                 writer = e.getMessage();
             } finally {
-                model.addAttribute("errorCase",writer);
+                model.addAttribute("errorCase", writer);
             }
-        }else {
+        } else {
             System.out.println("User already exists");
         }
         return "register_success";
