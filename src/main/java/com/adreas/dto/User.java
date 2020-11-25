@@ -9,7 +9,8 @@ public class User {
         private String password;
         private int phone;
         private String email;
-        private String idboolean gjj;
+        private String ifgl;
+
 
 
 
