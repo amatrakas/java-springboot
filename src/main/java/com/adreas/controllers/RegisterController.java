@@ -30,9 +30,9 @@ public class RegisterController {
 
         Util adreas = new Util();
 
-        boolean isCorrect = adreas.ifUserExists(file, user);
+        boolean userExists = adreas.ifUserExists(file, user);
 
-        if (!isCorrect) {
+        if ( ! userExists) {
             try {
                 Util save = new Util();
                 save.saveEachUser("C:/Users/antre/" + "adreas.txt", user);

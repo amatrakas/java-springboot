@@ -3,8 +3,6 @@ package com.adreas.controllers;
 import com.adreas.dto.User;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Util {
@@ -13,7 +11,7 @@ public class Util {
 
     public <user> void saveEachUser(String filename, User user) throws Exception {
         PrintWriter pw = null;
-//printwriter bufferedwriter pws douleuoun
+        // printwriter bufferedwriter pws douleuoun
         String userString = "name:" + user.getName() + ", " + "surname:" + user.getSurname() + ", " + "phone:" + user.getPhone() + ", " + "email:" + user.getEmail() + ", " + "password:" + user.getPassword();
         pw = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
         pw.println(userString + "\n");
@@ -32,9 +30,9 @@ public class Util {
         while (myReader.hasNextLine()) {
             data1.append(myReader.nextLine());
         }
-           if ( data1.indexOf(user.getName()) > -1){
-               return true;
-           }
-            return false;
+        if (data1.indexOf(user.getName()) > -1) {
+            return true;
+        }
+        return false;
     }
 }

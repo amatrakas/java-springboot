@@ -9,7 +9,7 @@
 
     <cache alias="userchache">
         <key-type>java.lang.Long</key-type>
-        <value-type>com.adreas.com.adreas.dto.User</value-type>
+        <value-type>com.adreas.dto.User</value-type>
         <expiry>
             <ttl unit="seconds">10000</ttl>
         </expiry>
