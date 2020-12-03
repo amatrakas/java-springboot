@@ -1,5 +1,8 @@
-package com.adreas.dto;
+package com.adreas.services;
 
+import com.adreas.dto.Client;
+import com.adreas.dto.Test;
+import com.adreas.dto.User;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
@@ -19,11 +22,15 @@ public class ServiceCache {
     @Autowired
     CacheManager cacheManager;
 
+
+    List<String> list1 = Arrays.asList(new String[]{"foo", "bar", "foo1", "bar1", "foo2", "bar2", "foo3", "bar3", "foo4", "bar4", "foo22", "bar22", "foo33", "bar33", "foo44", "bar44", "foo"});
+    List<String> list2 = Arrays.asList(new String[]{"fooo", "barr", "foo11", "bar11", "foo22", "bar22", "foo33", "bar33", "foo44", "bar44", "foo", "bar", "foo1", "bar1", "foo2", "bar2", "foo3", "bar3", "foo4", "bar4"});
+
+
     public String message(){
 
 
         Cache cache = cacheManager.getCache("usercache");
-
 
 
 
