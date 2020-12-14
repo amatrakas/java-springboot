@@ -1,6 +1,10 @@
 package com.adreas.controllers;
 
 import com.adreas.dto.User;
+import com.adreas.repositories.UserRepository;
+import com.adreas.services.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-
 public class RegisterController {
-
-
+    @Autowired
+    UserService userService;
     @GetMapping("/register")
     public String showForm(Model model) {
         User user = new User();
@@ -24,28 +27,12 @@ public class RegisterController {
     public String submitForm(Model model, @ModelAttribute("user") User user) throws Exception {
 
         System.out.println(user);
-        String writer = "epituxia apothikeushs";
 
-        String file = "C:/Users/antre/" + "adreas.txt";
+        userService.saveUser(user);
 
-        Util adreas = new Util();
+      userService.fUser(user.getEmail(), user.getPassword());
 
-        boolean userExists = adreas.ifUserExists(file, user);
-
-        if ( ! userExists) {
-            try {
-                Util save = new Util();
-                save.saveEachUser("C:/Users/antre/" + "adreas.txt", user);
-
-            } catch (Exception e) {
-                writer = e.getMessage();
-            } finally {
-                model.addAttribute("errorCase", writer);
-            }
-        } else {
-            System.out.println("User already exists");
-        }
         return "register_success";
-        //tell me about it
+
     }
 }

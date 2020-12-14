@@ -3,18 +3,12 @@ package com.adreas.services;
 import com.adreas.dto.Client;
 import com.adreas.dto.Test;
 import com.adreas.dto.User;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
-import org.springframework.cache.concurrent.ConcurrentMapCache;
-import org.springframework.expression.spel.CodeFlow;
 import org.springframework.stereotype.Component;
 import org.springframework.cache.CacheManager;
-;
-
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+
 
 @Component
 public class ServiceCache {
@@ -22,48 +16,62 @@ public class ServiceCache {
     @Autowired
     CacheManager cacheManager;
 
-
     List<String> list1 = Arrays.asList(new String[]{"foo", "bar", "foo1", "bar1", "foo2", "bar2", "foo3", "bar3", "foo4", "bar4", "foo22", "bar22", "foo33", "bar33", "foo44", "bar44", "foo"});
-    List<String> list2 = Arrays.asList(new String[]{"fooo", "barr", "foo11", "bar11", "foo22", "bar22", "foo33", "bar33", "foo44", "bar44", "foo", "bar", "foo1", "bar1", "foo2", "bar2", "foo3", "bar3", "foo4", "bar4"});
+    List<String> list2 = Arrays.asList(new String[]{"fooo", "barr", "foo11", "bar33", "foo22", "bar22", "foo33", "bar33", "foo44", "bar44", "foo", "bar", "foo1", "bar1", "foo2", "bar2", "foo3", "bar3", "foo4", "bar4"});
+
+    public List<String> listWithoutCommons(List<String> list1, List<String> list2) {
+        List<String> unCommon = new ArrayList<>();
+        for (String i : list2) {
+            System.out.println(i);
+
+            if(!(list1.contains(i))){
+                unCommon.add(i);
+
+
+            }
+
+        }
+
+        for (String i : list1) {
+            System.out.println(i);
+
+            if(!(list2.contains(i))){
+                unCommon.add(i);
+
+            }
+
+        }
+        return unCommon;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public String message(){
 
-
         Cache cache = cacheManager.getCache("usercache");
 
-
-
-
-        // List<?> objects = (List<?>) ((ConcurrentMapCache) cache).getNativeCache();
-
-
-        // Metatroph Integer se string
-        // Metatroph String se integer
-        // Metatroph Long se string
-        // Metatroph string se Long
-
-        Integer phone = 45;
-        String convert = String.valueOf(phone);
-        System.out.println(convert);
-        String  phone1 = "2255885";
-        Integer c = Integer.parseInt(phone1);
-        System.out.println(c);
-        Long  sb =578397983L;
-        String d = String.valueOf(sb);
-        String f = "348090";
-        Long g = Long.parseLong(f);
-        System.out.println(g);
-        User user = new User();
         Client client = new Client();
-        user.setPhone(Integer.parseInt(f));
-        user.setEmail(String.valueOf(phone));
-        user.setJsb(Long.valueOf(phone1));
-        user.setId(String.valueOf(sb));
         client.setAge("555");
 
         String greeting = "geia sou cache";
 
+        User user =new User();
         User user1 = new User();
         Client client1 = new Client();
         Test test = new Test();

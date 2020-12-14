@@ -16,9 +16,8 @@
         <span>Password:</span><span>${user.password}</span><br/>
 
            </div>
-           <p>--${errorCase}--
-           </p>
 
-           </p>
+
+
         </body>
         </html>

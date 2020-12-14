@@ -9,7 +9,7 @@
 <body>
     <div align="center">
         <h2>Login Succeeded!</h2>
-        <span>name:</span><span>${user.name}</span><br/>
+        <span>email:</span><span>${user.email}</span><br/>
         <span>Password:</span><span>${user.password}</span><br/>
 
            </div>

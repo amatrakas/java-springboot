@@ -1,22 +1,36 @@
 package com.adreas.dto;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name="user")
 public class User {
-
-
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        @Column(name="id")
+        private int id;
 
         private String name;
+
         private String surname;
+
         private String password;
+
         private int phone;
+
         private String email;
-        private String id;
 
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "profession_id",referencedColumnName = "id")
+        private Profession profession;
 
+    public Profession getProfession() {
+        return profession;
+    }
 
-
-
-
- 
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
 
     @Override
     public String toString() {
@@ -74,12 +88,12 @@ public class User {
         }
 
 
+    public int getId() {
+        return id;
+    }
 
-    public String getId(String id) {return id;}
-
-        public void setId(String id) {this.id = id;}
-
-    public void setJsb(Long valueOf) {
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

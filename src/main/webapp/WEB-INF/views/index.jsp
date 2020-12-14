@@ -12,8 +12,8 @@
          <h2>Login page</h2>
                 <form:form action="/" method="post" modelAttribute="user">
 
-                    <form:label path="name">name:</form:label>
-                    <form:input path="name"/><br/>
+                    <form:label path="email">email:</form:label>
+                    <form:input path="email"/><br/>
 
                     <form:label path="password">Password:</form:label>
                     <form:password path="password"/><br/>

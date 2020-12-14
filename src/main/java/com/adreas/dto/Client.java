@@ -1,13 +1,20 @@
 package com.adreas.dto;
 
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name="client")
 public class Client {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
     @NotNull
-    @Size(min=4,max=7)
+    @Size(min=4,max=15)
     private String firstname;
     @NotNull
     private String lastname;
@@ -20,7 +27,13 @@ public class Client {
     @Min(20)
     private  String age;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getAge() {
         return age;
