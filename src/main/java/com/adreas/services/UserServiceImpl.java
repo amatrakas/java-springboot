@@ -1,6 +1,8 @@
 package com.adreas.services;
 
+import com.adreas.dto.Client;
 import com.adreas.dto.User;
+import com.adreas.repositories.ClientRepository;
 import com.adreas.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,11 +30,13 @@ public class UserServiceImpl  implements UserService {
      */
     public User saveUser(User user) {
 
+
         //kalei t repository kai me thn save swzei ton xrhsth kai epistrefei ton xrhsth
-        User user1Saved = userRepository.save(user);
+        User  client1Saved = userRepository.save(user);
 
 
-        return user1Saved;
+
+        return client1Saved;
     }
 
 
@@ -46,6 +50,8 @@ public class UserServiceImpl  implements UserService {
     public List<User> getAllUsers(){
 
         List g = (List) userRepository.findAll();
+
+
 
         return g;
     }

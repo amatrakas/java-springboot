@@ -12,6 +12,7 @@ public class ClientServiceImpl implements ClientService {
     ClientRepository clientRepository;
 
     public Client saveClient(Client client){
+
         Client client1Saved =  clientRepository.save(client);
 
         return client1Saved;

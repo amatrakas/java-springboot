@@ -4,7 +4,6 @@ import com.adreas.dto.User;
 import com.adreas.repositories.UserRepository;
 import com.adreas.services.UserService;
 
-import com.sun.deploy.security.SelectableSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,9 +45,7 @@ public class RegisterController {
     @GetMapping("/showusers")
     public String showDbUsers(Model model){
 
-        User user = new User();
         List usersList = userService.getAllUsers();
-        model.addAttribute("user",user);
 
         model.addAttribute("list",usersList);
 
