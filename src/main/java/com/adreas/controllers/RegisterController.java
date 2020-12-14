@@ -4,6 +4,7 @@ import com.adreas.dto.User;
 import com.adreas.repositories.UserRepository;
 import com.adreas.services.UserService;
 
+import com.sun.deploy.security.SelectableSecurityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +28,15 @@ public class RegisterController {
     public String submitForm(Model model, @ModelAttribute("user") User user) throws Exception {
 
         System.out.println(user);
+        User findUser = userService.findUserByEmailAndPassword(user.getEmail(),user.getPassword());
 
-        userService.saveUser(user);
+        if((findUser==null)) {
+            userService.saveUser(user);
+        }else{
+            System.out.println("user already exists");
+        }
 
-      userService.fUser(user.getEmail(), user.getPassword());
+
 
         return "register_success";
 

@@ -12,7 +12,7 @@ public interface UserService {
 
     public User saveUser(User user);
 
-    public User fUser(String email,String password);
+    public User findUserByEmailAndPassword(String email,String password);
 
 
 }

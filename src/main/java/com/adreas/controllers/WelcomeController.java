@@ -28,7 +28,7 @@ public class WelcomeController {
     public String welcome(@ModelAttribute("user") User user) throws IOException {
         System.out.println(user);
 
-        User registeredUser = userService.fUser(user.getEmail(),user.getPassword());
+        User registeredUser = userService.findUserByEmailAndPassword(user.getEmail(),user.getPassword());
 
 
 
