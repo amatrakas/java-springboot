@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class RegisterController {
     @Autowired
@@ -40,5 +42,16 @@ public class RegisterController {
 
         return "register_success";
 
+    }
+    @GetMapping("/showusers")
+    public String showDbUsers(Model model){
+
+        User user = new User();
+        List usersList = userService.getAllUsers();
+        model.addAttribute("user",user);
+
+        model.addAttribute("list",usersList);
+
+        return "all_users";
     }
 }

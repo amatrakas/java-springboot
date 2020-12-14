@@ -5,6 +5,8 @@ import com.adreas.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Implementation toy User service
  */
@@ -40,6 +42,12 @@ public class UserServiceImpl  implements UserService {
         User f = userRepository.findByEmailAndPassword(email,password);
 
         return f;
+    }
+    public List<User> getAllUsers(){
+
+        List g = (List) userRepository.findAll();
+
+        return g;
     }
 }
 

@@ -14,6 +14,7 @@ public class ProfessionController {
 
     @GetMapping("/profession")
     public String showProfession(Model model){
+
         Profession profession = new Profession();
 
         model.addAttribute("profession",profession);
