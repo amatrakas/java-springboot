@@ -36,9 +36,8 @@ public class ClientController {
             client.setSave("Exei ERROR");
         }else {
             client.setSave("DEN EXEI ERROR");
+            clientService.saveClient(client);
         }
-
-       clientService.saveClient(client);
 
         return "client_form";
     }

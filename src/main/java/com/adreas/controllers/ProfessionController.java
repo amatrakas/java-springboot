@@ -14,7 +14,6 @@ public class ProfessionController {
 
     @GetMapping("/profession")
     public String showProfession(Model model){
-
         Profession profession = new Profession();
 
         model.addAttribute("profession",profession);
@@ -22,14 +21,12 @@ public class ProfessionController {
         return "profession_form";
     }
 
-    @PostMapping("/profession")
-    public String submitProfession(@ModelAttribute("profession") Profession profession){
+    public String submitProfession(@ModelAttribute("profession")Profession profession){
 
-    professionService.saveProfession(profession);
+        professionService.saveProfession(profession);
 
-    return "saved_profession";
+        return "saved_profession";
     }
-
 
 
 

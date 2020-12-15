@@ -19,7 +19,7 @@ public class Client {
     @NotNull
     private String lastname;
     private String gender;
-    private String[] vehicles;
+    private Min.List[] vehicles;
     private String cars;
     private String address;
     private String save;
@@ -76,11 +76,11 @@ public class Client {
         this.gender = gender;
     }
 
-    public String[] getVehicles() {
+    public Min.List[] getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(String[] vehicles) {
+    public void setVehicles(Min.List[] vehicles) {
         this.vehicles = vehicles;
     }
 
