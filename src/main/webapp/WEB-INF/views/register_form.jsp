@@ -11,6 +11,8 @@
         <h2>User Registration</h2>
         <form:form action="register" method="post" modelAttribute="user">
 
+            <form:hidden path="id" />
+
             <form:label path="name">name:</form:label>
             <form:input path="name"/><br/>
 
@@ -31,7 +33,10 @@
            </form:form>
 
 
-      </div>
 
+      </div>
+      <p>${created}</p>
+      <p>${updated}</p>
+            <a href="showusers">show my users</a>
            </body>
         </html>

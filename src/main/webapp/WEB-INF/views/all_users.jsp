@@ -11,9 +11,7 @@
 <body>
 
  <h2>users found</h2>
-
- <c:forEach items="${list}" var="user">
- <table>
+<table border="1">
      <tr>
      <th>ID</th>
      <th>Name</th>
@@ -22,16 +20,21 @@
      <th>Email</th>
      <th>Phone</th>
      </tr>
-        <tr>
-         <td><c:out value="${user.id}"/></td>
-          <td><c:out value="${user.name}"/></td>
-          <td><c:out value="${user.surname}"/></td>
-          <td><c:out value="${user.password}"/></td>
-          <td><c:out value="${user.email}"/></td>
-          <td><c:out value="${user.phone}"/></td>
-         </tr>
-     </table>
- </c:forEach>
+     <c:forEach items="${list}" var="user">
+            <tr>
+             <td><a href="/edit?userid=${user.id}">edit user</a></td>
+              <td><c:out value="${user.name}"/></td>
+              <td><c:out value="${user.surname}"/></td>
+              <td><c:out value="${user.password}"/></td>
+              <td><c:out value="${user.email}"/></td>
+              <td><c:out value="${user.phone}"/></td>
+             </tr>
+
+     </c:forEach>
+ </table>
+ <p>${created}</p>
+ <p>${updated}</p>
+
 
 </body>
 

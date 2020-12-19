@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableCaching
 @SpringBootApplication
 @EnableJpaRepositories
-//@ComponentScan(basePackages = "com.adreas.services, com.adreas.repo")
+
 public class SpringApp {
 
     public static void main(String[] args) {

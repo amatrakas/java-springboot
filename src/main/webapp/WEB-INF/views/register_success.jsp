@@ -17,6 +17,9 @@
 
            </div>
 
+           <p>${created}</p>
+           <p>${updated}</p>
+
 
 
         </body>
