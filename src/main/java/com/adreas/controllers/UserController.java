@@ -28,7 +28,7 @@ public class UserController {
         User user = new User();
        // dhmiourgw ena model pou einai upeuthuno gia thn epoikinwnia client kai server
         model.addAttribute("user", user);
-        //epistrefei thn jsp paghe pou ehw dhmiourghsei pou einai h forma mou gia thn eggrafh tou user
+        //epistrefei thn jsp page pou ehw dhmiourghsei pou einai h forma mou gia thn eggrafh tou user
         return "register_form";
     }
 
@@ -73,27 +73,15 @@ public class UserController {
 
         userService.saveUser(user);
 
-
-        return "register_form";
-
-    }
-
-
-    /**
-     * emfanizei sto /showusers mia lista apo tous users ths vashs
-     * @param model ena h parapanw models
-     * * @return epistrefei mia jsp opou ekei ehw kanei iterate th lista me tous users ths vashs
-     */
-    @GetMapping("/showusers")
-    public String showDbUsers(Model model){
-        //vriskei kai pernaei se mia lista olous tous users ths vashs
         List usersList = userService.getAllUsers();
-        // peraw auth th lista se ena model attribute me name list
+
         model.addAttribute("list",usersList);
 
-        // epistrefei thn jsp -
+
         return "all_users";
+
     }
+
 
 
 
