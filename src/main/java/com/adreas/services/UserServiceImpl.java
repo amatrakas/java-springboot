@@ -70,6 +70,11 @@ public class UserServiceImpl  implements UserService {
         //epistrefei ton user
         return optionalUser.get();
     }
+    public void deleteUserById(Integer id){
+
+        userRepository.deleteById(id);
+
+    }
 }
 
 

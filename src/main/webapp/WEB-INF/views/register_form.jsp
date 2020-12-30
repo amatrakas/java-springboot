@@ -5,6 +5,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User Registration Form</title>
+<style>
+.error{
+    color:red
+  }
+</style>
 </head>
 <body>
     <div align="center">
@@ -15,18 +20,23 @@
 
             <form:label path="name">name:</form:label>
             <form:input path="name"/><br/>
+            <form:errors cssClass="error" path="name"/><br/>
 
              <form:label path="surname">surname:</form:label>
              <form:input path="surname"/><br/>
+             <form:errors cssClass="error" path="surname"/><br/>
 
             <form:label path="email">E-mail:</form:label>
             <form:input path="email"/><br/>
+            <form:errors cssClass="error" path="email"/><br/>
 
             <form:label path="phone">phone:</form:label>
             <form:input path="phone"/><br/>
+            <form:errors cssClass="error" path="phone"/><br/>
 
             <form:label path="password">Password:</form:label>
             <form:password path="password"/><br/>
+            <form:errors cssClass="error" path="password"/><br/>
 
            <input type="submit" value="Submit"/>
 
@@ -35,8 +45,7 @@
 
 
       </div>
-      <p>${created}</p>
-      <p>${updated}</p>
-            <a href="showusers">show my users</a>
+
+
            </body>
         </html>

@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.adreas.repositories.ClientRepository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
 
@@ -18,6 +21,25 @@ public class ClientServiceImpl implements ClientService {
         return client1Saved;
     }
 
+    public List<Client> findClients(){
+
+        List getClients = (List) clientRepository.findAll();
+
+        return getClients;
+    }
+
+    public Optional<Client> findById(Integer id){
+
+        Optional<Client> getTheClient = clientRepository.findById(id);
+
+        return getTheClient;
+
+
+    }
+    public void deleteClientById(Integer id){
+
+        clientRepository.deleteById(id);
+    }
 
 }
 

@@ -4,13 +4,14 @@ import com.adreas.dto.User;
 import com.adreas.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.Id;
+import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -59,34 +60,49 @@ public class UserController {
      * @return epistrefei th forma mou
      * @throws Exception
      */
+
     @PostMapping("/register")
-    public String submitForm(Model model,@ModelAttribute("user") User user) throws Exception {
+    public String submitForm(Model model, @ModelAttribute("user") @Valid User user, BindingResult bindingResult) throws Exception {
+
+        boolean isNotValid = bindingResult.hasErrors();
 
         String newUser = "User created";
         String updatedUser = "User updated";
-        if(user.getId()==0){
+         if(user.getId()==0){
             model.addAttribute("created",newUser);
         }else {
             model.addAttribute("updated",updatedUser);
         }
 
 
-        userService.saveUser(user);
+        if(isNotValid){
+            return "register_form";
+        }else{
+            userService.saveUser(user);
+        }
+
+
 
         List usersList = userService.getAllUsers();
 
         model.addAttribute("list",usersList);
 
 
-        return "all_users";
+        return "users_list";
 
     }
+    @GetMapping("/delete")
+    public String deleteMyUser(Model model,@RequestParam("userid") Integer id){
+
+        userService.deleteUserById(id);
+
+        List usersList = userService.getAllUsers();
+
+        model.addAttribute("list",usersList);
 
 
-
-
-
-
+        return "users_list";
+    }
 
 
 }

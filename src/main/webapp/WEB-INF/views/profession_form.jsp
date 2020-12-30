@@ -5,6 +5,12 @@
  <head>
  <meta charset="ISO-8859-1">
  <title></title>
+ <style>
+ .error{
+     color:red
+   }
+ </style>
+
  </head>
  <body>
      <div align="center">
@@ -14,9 +20,10 @@
              <form:hidden path="id" />
 
              <form:label path="name">name:</form:label>
-             <form:input path="name"/>
+             <form:input path="name"/><br/>
+             <form:errors cssClass="error" path="name"/><br/>
 
-
+            <input type="submit" value="Submit"/>
          </form:form>
      </div>
  </body>

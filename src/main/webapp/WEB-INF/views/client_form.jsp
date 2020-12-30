@@ -12,14 +12,13 @@
   }
 </style>
 </head>
-</head>
 <body>
     <div align="center">
         <h2>New Form</h2>
 
 
             <form:form action="client" method="post" modelAttribute="client">
-
+             <form:hidden path="id" />
             <form:label path="firstname">FirstName:</form:label>
             <form:input path="firstname"/><br/>
             <form:errors cssClass="error" path="firstname"/><br/>
@@ -45,12 +44,21 @@
                 </form:select>
                 <br>
                 <br>
-                <form:checkbox path="vehicles" value="car"/>I have a car
-                <form:checkbox path="vehicles" value="boat"/>I have a boat
-                <form:checkbox path="vehicles" value="bike"/>I have a bike<br><br>
+                <select name="profession">
+                    <c:forEach items="${listp}" var="profession">
+                        <option value="${profession.id}">${profession.name}</option>
+                    </c:forEach>
+                </select>
 
 
-        ${client.save}
+                <br>
+                <br>
+
+
+
+
+
+
 
 
            <input type="submit" value="Submit"/>

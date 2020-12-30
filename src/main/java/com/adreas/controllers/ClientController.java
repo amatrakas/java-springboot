@@ -2,6 +2,7 @@ package com.adreas.controllers;
 
 import com.adreas.dto.Client;
 import com.adreas.services.ClientService;
+import com.adreas.services.ProfessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,9 +10,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ClientController {
@@ -19,26 +22,68 @@ public class ClientController {
     @Autowired
     ClientService clientService;
 
+    @Autowired
+    ProfessionService professionService;
+
     @GetMapping("/client")
     public String showForm(Model model) {
         Client client = new Client();
         model.addAttribute("client", client);
 
+        List professionList = professionService.showProfession();
+
+        model.addAttribute("listp",professionList);
+
 
         return "client_form";
     }
 
+    @GetMapping("/review")
+    public String editMyClient(Model model, @RequestParam("clientid") Integer id){
+
+        Optional<Client> getTheClient = clientService.findById(id);
+
+        model.addAttribute("client",getTheClient);
+
+        return "client_form";
+
+
+    }
+
 
     @PostMapping("/client")
-    public String submitForm(HttpServletRequest request, Model model, @ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
+    public String submitForm(Model model, @ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
         boolean hasErrors = bindingResult.hasErrors();
+
+
+        String updateClient = "client updated";
+        String createClient = "client created";
+        if(client.getId()==0){
+            model.addAttribute("created",createClient);
+        }else{
+            model.addAttribute("updated",updateClient);
+        }
         if (hasErrors){
-            client.setSave("Exei ERROR");
+            return "client_form";
         }else {
-            client.setSave("DEN EXEI ERROR");
             clientService.saveClient(client);
         }
 
-        return "client_form";
+        List clientList = clientService.findClients();
+
+        model.addAttribute("listc",clientList);
+
+        return "clients_list";
+    }
+    @GetMapping("/remove")
+    public String removeClient(Model model,@RequestParam("clientid") Integer id){
+
+        clientService.deleteClientById(id);
+
+        List clientList = clientService.findClients();
+
+        model.addAttribute("listc",clientList);
+
+        return "clients_list";
     }
 }

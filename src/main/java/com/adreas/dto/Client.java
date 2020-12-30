@@ -17,15 +17,17 @@ public class Client {
     @Size(min=4,max=15)
     private String firstname;
     @NotNull
+    @Size(min=4,max=15)
     private String lastname;
     private String gender;
-    private Min.List[] vehicles;
     private String cars;
     private String address;
     private String save;
     @NotNull
-    @Min(20)
+    @Min(18)
     private  String age;
+
+
 
     public int getId() {
         return id;
@@ -76,13 +78,7 @@ public class Client {
         this.gender = gender;
     }
 
-    public Min.List[] getVehicles() {
-        return vehicles;
-    }
 
-    public void setVehicles(Min.List[] vehicles) {
-        this.vehicles = vehicles;
-    }
 
     public String getCars() {
         return cars;

@@ -26,7 +26,6 @@ public class WelcomeController {
 
     @PostMapping("/")
     public String welcome(@ModelAttribute("user") User user) throws IOException {
-        System.out.println(user);
 
         User registeredUser = userService.findUserByEmailAndPassword(user.getEmail(),user.getPassword());
 

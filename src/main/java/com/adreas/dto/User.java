@@ -1,5 +1,8 @@
 package com.adreas.dto;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 
 @Entity
@@ -9,15 +12,22 @@ public class User {
         @GeneratedValue(strategy=GenerationType.AUTO)
         @Column(name="id")
         private int id;
-
+        @NotNull
+        @Size(min=4,max=15)
         private String name;
-
+        @NotNull
+        @Size(min=4,max=15)
         private String surname;
-
+        @NotNull
+        @Size(min=6,max=20)
         private String password;
-
+        @NotNull
         private int phone;
-
+        @NotNull
+        @Pattern(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$",message = "Email don't match with pattern")
         private String email;
 
         @OneToOne(cascade = CascadeType.ALL)
