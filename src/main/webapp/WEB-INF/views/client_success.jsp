@@ -17,9 +17,6 @@
  Gender:${client.gender}</br>
  Address:${client.address}</br>
  Cars:${client.cars}</br>
-<c:forEach var="vehicles" items="${client.vehicles}">
-<li>${vehicles}</li>
-</c:forEach>
-</ul>
+
 </body>
 </html>

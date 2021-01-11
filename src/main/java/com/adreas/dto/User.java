@@ -27,10 +27,10 @@ public class User {
         @Pattern(regexp = "^[a-zA-Z0-9_+&*-]+(?:\\."+
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}$",message = "Email don't match with pattern")
+                "A-Z]{2,7}$",message = "Email doesn't match with pattern")
         private String email;
 
-        @OneToOne(cascade = CascadeType.ALL)
+        @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "profession_id",referencedColumnName = "id")
         private Profession profession;
 

@@ -38,13 +38,14 @@
             <form:password path="password"/><br/>
             <form:errors cssClass="error" path="password"/><br/>
 
+            <form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
+            <br><br>
+
            <input type="submit" value="Submit"/>
 
            </form:form>
 
-
-
-      </div>
+       </div>
 
 
            </body>

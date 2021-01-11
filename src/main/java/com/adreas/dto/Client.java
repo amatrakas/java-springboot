@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name="client")
@@ -22,10 +23,40 @@ public class Client {
     private String gender;
     private String cars;
     private String address;
-    private String save;
     @NotNull
     @Min(18)
     private  String age;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profession_id",referencedColumnName = "id")
+    private Profession profession;
+
+
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", gender='" + gender + '\'' +
+                ", cars='" + cars + '\'' +
+                ", address='" + address + '\'' +
+                ", age='" + age + '\'' +
+                ", profession=" + profession +
+                '}';
+    }
+
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+
+
 
 
 
@@ -41,14 +72,7 @@ public class Client {
         return age;
     }
 
-    public String getSave() {
-        return save;
-    }
 
-    public String setSave(String save) {
-        this.save = save;
-        return save;
-    }
 
     public void setAge(String age) {
         this.age = age;

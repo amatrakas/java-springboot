@@ -1,6 +1,7 @@
 package com.adreas.controllers;
 
 import com.adreas.dto.User;
+import com.adreas.services.ProfessionService;
 import com.adreas.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
+    @Autowired
+    ProfessionService professionService;
+
 
     /**kanei ena http get request sto /register
      *
@@ -30,6 +34,11 @@ public class UserController {
        // dhmiourgw ena model pou einai upeuthuno gia thn epoikinwnia client kai server
         model.addAttribute("user", user);
         //epistrefei thn jsp page pou ehw dhmiourghsei pou einai h forma mou gia thn eggrafh tou user
+        List professionList = professionService.showProfession();
+        model.addAttribute("professionList", professionList);
+
+
+
         return "register_form";
     }
 
@@ -48,6 +57,11 @@ public class UserController {
         model.addAttribute("user", getTheUser);
         /*epeidh sth jsp mou ehw to model attribute me name user s auto t ehw perasei ton user pou vrika apo to id sth forma pou tha
         mouepustrepsei ta pedia tha einai populated me ta stoiheia tou sugekrimenou user */
+
+
+        List professionList = professionService.showProfession();
+        model.addAttribute("professionList", professionList);
+
         return "register_form";
     }
 

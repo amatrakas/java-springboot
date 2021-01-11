@@ -30,6 +30,8 @@
               <td><c:out value="${user.password}"/></td>
               <td><c:out value="${user.email}"/></td>
               <td><c:out value="${user.phone}"/></td>
+              <td><c:out value="${user.profession.name}"/></td>
+
              </tr>
 
      </c:forEach>

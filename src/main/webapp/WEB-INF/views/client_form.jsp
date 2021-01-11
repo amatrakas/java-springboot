@@ -35,30 +35,16 @@
                 <form:label path = "address">Address</form:label>
                 <form:textarea path = "address" rows = "5" cols = "30"/>
                 <br>
-                <br>
+
                 <form:select path="cars" multiple="true">
                 <form:option value="volvo" label="volvo"/>
                 <form:option value="saab"  label="saab"/>
                 <form:option value="opel"  label="opel"/>
                 <form:option value="audi"  label="audi"/>
                 </form:select>
-                <br>
-                <br>
-                <select name="profession">
-                    <c:forEach items="${listp}" var="profession">
-                        <option value="${profession.id}">${profession.name}</option>
-                    </c:forEach>
-                </select>
-
-
-                <br>
-                <br>
-
-
-
-
-
-
+                <br><br>
+                <form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
+                 <br><br>
 
 
            <input type="submit" value="Submit"/>

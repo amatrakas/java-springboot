@@ -17,8 +17,9 @@
      <th>Firstname</th>
      <th>Lastname</th>
      <th>Gender</th>
-     <th>Cars</th>
      <th>Address</th>
+     <th>Cars</th>
+     <th>Profession</th>
      </tr>
 
       <c:forEach items="${listc}" var="client">
@@ -27,9 +28,13 @@
                    <td><c:out value="${client.firstname}"/></td>
                    <td><c:out value="${client.lastname}"/></td>
                    <td><c:out value="${client.gender}"/></td>
+                   <td><c:out value="${client.address}"/></td>
                    <td><c:out value="${client.cars}"/></td>
-                    <td><c:out value="${client.address}"/></td>
+                   <td><c:out value="${client.profession.name}"/></td>
+
                  </tr>
+
+
 
       </c:forEach>
       </table>

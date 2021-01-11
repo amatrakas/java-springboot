@@ -28,12 +28,13 @@ public class ClientController {
     @GetMapping("/client")
     public String showForm(Model model) {
         Client client = new Client();
-        model.addAttribute("client", client);
 
         List professionList = professionService.showProfession();
 
-        model.addAttribute("listp",professionList);
+        model.addAttribute("professionList", professionList);
 
+
+        model.addAttribute("client", client );
 
         return "client_form";
     }
@@ -43,7 +44,12 @@ public class ClientController {
 
         Optional<Client> getTheClient = clientService.findById(id);
 
+        List professionList = professionService.showProfession();
+        model.addAttribute("professionList", professionList);
+
         model.addAttribute("client",getTheClient);
+
+        professionService.findProfession(id);
 
         return "client_form";
 
@@ -53,8 +59,8 @@ public class ClientController {
 
     @PostMapping("/client")
     public String submitForm(Model model, @ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
-        boolean hasErrors = bindingResult.hasErrors();
 
+        boolean hasErrors = bindingResult.hasErrors();
 
         String updateClient = "client updated";
         String createClient = "client created";
