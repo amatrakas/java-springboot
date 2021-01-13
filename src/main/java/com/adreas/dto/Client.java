@@ -27,7 +27,7 @@ public class Client {
     @Min(18)
     private  String age;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "profession_id",referencedColumnName = "id")
     private Profession profession;
 

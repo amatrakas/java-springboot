@@ -13,25 +13,11 @@ public class Profession {
     @NotNull
     @Size(min=4,max=20)
     private String name;
-    @OneToOne(mappedBy = "profession")
-    private User user;
+    @OneToOne(mappedBy = "profession",fetch = FetchType.LAZY)
 
-    @Override
-    public String toString() {
-        return "Profession{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", user=" + user +
-                '}';
-    }
 
-    public User getUser() {
-        return user;
-    }
+   
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public int getId() {
         return id;
