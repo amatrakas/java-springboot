@@ -12,6 +12,7 @@
         <span>email:</span><span>${user.email}</span><br/>
         <span>Password:</span><span>${user.password}</span><br/>
 
+        <p>${hello}</p>
            </div>
         </body>
         </html>
