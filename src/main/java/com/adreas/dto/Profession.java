@@ -13,7 +13,7 @@ public class Profession {
     @NotNull
     @Size(min=4,max=20)
     private String name;
-    @OneToOne(mappedBy = "profession",fetch = FetchType.LAZY)
+
 
 
    
