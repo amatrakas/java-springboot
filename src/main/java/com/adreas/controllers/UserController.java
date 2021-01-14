@@ -95,37 +95,27 @@ public class UserController {
             User save = userService.saveUser(user);
         }
 
-
-
-
         List usersList = userService.getAllUsers();
-
         model.addAttribute("list",usersList);
-
-
-        return "users_list";
-
+        return "redirect:" + "/userlist";
     }
+
+
+
+
     @GetMapping("/delete")
     public String deleteMyUser(Model model,@RequestParam("userid") Integer id){
-
         userService.deleteUserById(id);
-
-
-
-
         return "users_list";
     }
+
+
+
     @GetMapping("/userlist")
     public String showMyUsers(Model model){
-
         List userList = userService.getAllUsers();
-
         model.addAttribute("list",userList);
-
         return "users_list";
-
-
     }
 
 
