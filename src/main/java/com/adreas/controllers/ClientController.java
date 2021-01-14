@@ -66,14 +66,14 @@ public class ClientController {
         String createClient = "client created";
         if(client.getId()==0){
             model.addAttribute("created",createClient);
+            clientService.saveClient(client);
         }else{
             model.addAttribute("updated",updateClient);
         }
         if (hasErrors){
             return "client_form";
-        }else {
-            clientService.saveClient(client);
         }
+
 
         List clientList = clientService.findClients();
 
@@ -81,6 +81,7 @@ public class ClientController {
 
         return "clients_list";
     }
+
     @GetMapping("/remove")
     public String removeClient(Model model,@RequestParam("clientid") Integer id){
 

@@ -92,8 +92,9 @@ public class UserController {
         if(isNotValid){
             return "register_form";
         }else{
-            userService.saveUser(user);
+            User save = userService.saveUser(user);
         }
+
 
 
 
@@ -110,12 +111,21 @@ public class UserController {
 
         userService.deleteUserById(id);
 
-        List usersList = userService.getAllUsers();
 
-        model.addAttribute("list",usersList);
 
 
         return "users_list";
+    }
+    @GetMapping("/userlist")
+    public String showMyUsers(Model model){
+
+        List userList = userService.getAllUsers();
+
+        model.addAttribute("list",userList);
+
+        return "users_list";
+
+
     }
 
 

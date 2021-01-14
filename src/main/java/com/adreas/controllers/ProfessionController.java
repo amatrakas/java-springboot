@@ -55,9 +55,6 @@ public class ProfessionController {
         }
         if(notValid){
             return "profession_form";
-        }else{
-            Profession professionSaved = professionService.saveProfession(profession);
-
         }
 
         List professionList = professionService.showProfession();

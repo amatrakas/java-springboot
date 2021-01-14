@@ -28,14 +28,14 @@ public class WelcomeController {
     public String welcome(Model model,@ModelAttribute("user") User user) throws IOException {
         String welcome = "your login was successful";
         User registeredUser = userService.findUserByEmailAndPassword(user.getEmail(),user.getPassword());
-        String validationError = "User should register first";
+        String registrationError = "User should register first";
         if(!(registeredUser==null)){
             model.addAttribute("hello",welcome);
 
             return "welcome";
 
         }else {
-            model.addAttribute("error",validationError);
+            model.addAttribute("error",registrationError);
 
             return "index";
         }
