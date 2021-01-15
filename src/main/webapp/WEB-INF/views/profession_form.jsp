@@ -24,6 +24,9 @@
              <form:errors cssClass="error" path="name"/><br/>
 
             <input type="submit" value="Submit"/>
+
+             <%@ include file="footer.jsp" %>
+
          </form:form>
      </div>
  </body>

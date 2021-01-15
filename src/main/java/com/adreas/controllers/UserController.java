@@ -56,7 +56,7 @@ public class UserController {
         //pernraw ton user pou vrika sto model me name user
         model.addAttribute("user", getTheUser);
         /*epeidh sth jsp mou ehw to model attribute me name user s auto t ehw perasei ton user pou vrika apo to id sth forma pou tha
-        mouepustrepsei ta pedia tha einai populated me ta stoiheia tou sugekrimenou user */
+        mou epistrepsei ta pedia tha einai populated me ta stoiheia tou sugekrimenou user */
 
 
         List professionList = professionService.showProfession();
@@ -80,41 +80,32 @@ public class UserController {
 
         boolean isNotValid = bindingResult.hasErrors();
 
-        String newUser = "User created";
-        String updatedUser = "User updated";
-         if(user.getId()==0){
-            model.addAttribute("created",newUser);
-        }else {
-            model.addAttribute("updated",updatedUser);
-        }
-
-
         if(isNotValid){
             return "register_form";
         }else{
             User save = userService.saveUser(user);
         }
 
-        List usersList = userService.getAllUsers();
-        model.addAttribute("list",usersList);
         return "redirect:" + "/userlist";
     }
 
 
-
-
     @GetMapping("/delete")
-    public String deleteMyUser(Model model,@RequestParam("userid") Integer id){
+    public String deleteMyUser(@RequestParam("userid") Integer id){
+
         userService.deleteUserById(id);
-        return "users_list";
+
+        return "redirect:" + "userlist";
     }
 
 
 
     @GetMapping("/userlist")
     public String showMyUsers(Model model){
+
         List userList = userService.getAllUsers();
         model.addAttribute("list",userList);
+
         return "users_list";
     }
 

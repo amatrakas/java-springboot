@@ -37,8 +37,8 @@
 
      </c:forEach>
  </table>
- <p>${created}</p>
- <p>${updated}</p>
+
+
 
 
 </body>

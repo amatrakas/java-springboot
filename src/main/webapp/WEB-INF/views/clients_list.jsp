@@ -10,7 +10,7 @@
 </head>
 <body>
 
- <h2>Clients found</h2>
+<h2>Clients found</h2>
 <table border="1">
      <tr>
      <th>ID</th>
@@ -38,8 +38,7 @@
 
       </c:forEach>
       </table>
-      <p>${created}</p>
-      <p>${updated}</p>
+
 
       </body>
 

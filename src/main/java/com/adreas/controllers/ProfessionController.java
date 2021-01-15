@@ -46,23 +46,16 @@ public class ProfessionController {
     @PostMapping("/profession")
     public String submitMyForm(Model model, @ModelAttribute("profession") @Valid Profession profession, BindingResult bindingResult){
         boolean notValid = bindingResult.hasErrors();
-        String created = "Profession created";
-        String updated = "Profession updated";
-        if(profession.getId()==0){
-            model.addAttribute("created",created);
-        }else{
-            model.addAttribute("updated",updated);
-        }
+
         if(notValid){
             return "profession_form";
+        }else {
+            professionService.saveProfession(profession);
         }
 
-        List professionList = professionService.showProfession();
-
-        model.addAttribute("listp",professionList);
-
-        return "profession_list";
+        return "redirect:" + "professionlist";
     }
+
     @GetMapping("/professionlist")
     public String showMyUsers(Model model){
 

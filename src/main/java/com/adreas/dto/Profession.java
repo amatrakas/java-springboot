@@ -14,6 +14,13 @@ public class Profession {
     @Size(min=4,max=20)
     private String name;
 
+    @Override
+    public String toString() {
+        return "Profession{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 
     public int getId() {
         return id;

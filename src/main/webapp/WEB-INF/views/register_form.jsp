@@ -42,7 +42,7 @@
             <br><br>
 
            <input type="submit" value="Submit"/>
-
+            <%@ include file="footer.jsp" %>
            </form:form>
 
        </div>

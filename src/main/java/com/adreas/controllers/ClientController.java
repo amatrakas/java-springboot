@@ -58,37 +58,32 @@ public class ClientController {
 
 
     @PostMapping("/client")
-    public String submitForm(Model model, @ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
+    public String submitForm(Model model,@ModelAttribute("client") @Valid Client client, BindingResult bindingResult) throws Exception {
 
         boolean hasErrors = bindingResult.hasErrors();
 
-        String updateClient = "client updated";
-        String createClient = "client created";
-        if(client.getId()==0){
-            model.addAttribute("created",createClient);
-            clientService.saveClient(client);
-        }else{
-            model.addAttribute("updated",updateClient);
-        }
         if (hasErrors){
-            return "client_form";
+            List professionList = professionService.showProfession();
+
+            model.addAttribute("professionList", professionList);
+            return  "client_form";
+        }else{
+            clientService.saveClient(client);
         }
-
-
-        List clientList = clientService.findClients();
-
-        model.addAttribute("listc",clientList);
-
-        return "clients_list";
+        return "redirect:" + "clientlist";
     }
 
     @GetMapping("/remove")
-    public String removeClient(Model model,@RequestParam("clientid") Integer id){
+    public String removeClient(@RequestParam("clientid") Integer id){
 
         clientService.deleteClientById(id);
 
-        List clientList = clientService.findClients();
+        return "redirect:" + "clientlist";
+    }
+    @GetMapping("/clientlist")
+    public String showMyClients(Model model){
 
+        List clientList = clientService.findClients();
         model.addAttribute("listc",clientList);
 
         return "clients_list";

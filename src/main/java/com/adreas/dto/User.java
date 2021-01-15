@@ -30,7 +30,7 @@ public class User {
                 "A-Z]{2,7}$",message = "Email doesn't match with pattern")
         private String email;
 
-        @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+        @OneToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "profession_id",referencedColumnName = "id")
         private Profession profession;
 

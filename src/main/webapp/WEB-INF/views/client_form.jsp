@@ -13,6 +13,8 @@
 </style>
 </head>
 <body>
+<%@ include file="header.jsp" %>
+
     <div align="center">
         <h2>New Form</h2>
 
@@ -35,7 +37,7 @@
                 <form:label path = "address">Address</form:label>
                 <form:textarea path = "address" rows = "5" cols = "30"/>
                 <br>
-
+                Cars:
                 <form:select path="cars" multiple="true">
                 <form:option value="volvo" label="volvo"/>
                 <form:option value="saab"  label="saab"/>
@@ -43,12 +45,12 @@
                 <form:option value="audi"  label="audi"/>
                 </form:select>
                 <br><br>
-                <form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
+                Professions:<form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
                  <br><br>
 
 
            <input type="submit" value="Submit"/>
-
+            <%@ include file="footer.jsp" %>
            </form:form>
 
 
