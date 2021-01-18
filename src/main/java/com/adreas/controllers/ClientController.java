@@ -74,9 +74,11 @@ public class ClientController {
     }
 
     @GetMapping("/remove")
-    public String removeClient(@RequestParam("clientid") Integer id){
+    public String removeClient(Model model,@RequestParam("clientid") Integer id){
 
         clientService.deleteClientById(id);
+        List clientList = clientService.findClients();
+        model.addAttribute("listc",clientList);
 
         return "redirect:" + "clientlist";
     }

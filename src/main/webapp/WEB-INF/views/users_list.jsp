@@ -2,15 +2,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title></title>
-</head>
+<%@ include file="header.jsp" %>
+<%@ include file="menu.jsp" %>
 <body>
-
- <h2>users found</h2>
+<h2>users found</h2>
 <table border="1">
      <tr>
      <th>Id</th>
@@ -23,7 +18,7 @@
      </tr>
      <c:forEach items="${list}" var="user">
             <tr>
-              <td border="1"><a href="/edit?userid=${user.id}">edit user</a>,<a href="/delete?userid=${user.id}">delete user</a></td>
+              <td border="1"><a href="edit?userid=${user.id}">edit user</a>,<a href="delete?userid=${user.id}">delete user</a></td>
 
 
               <td><c:out value="${user.name}"/></td>
@@ -40,7 +35,7 @@
 
 
 
-
+<%@ include file="footer.jsp" %>
 </body>
 
     </html>

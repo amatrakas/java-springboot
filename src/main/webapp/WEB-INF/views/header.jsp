@@ -1,12 +1,10 @@
+<!DOCTYPE html>
 <html>
-   <head>
-      <title>The include Directive Example</title>
-   </head>
-
-   <body>
-      <center>
-         <h2>The include Directive Example</h2>
-         </center>
-
-            </body>
-         </html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+.error{
+    color:red
+  }
+</style>
+</head>

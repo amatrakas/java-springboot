@@ -1,17 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>User Registration Form</title>
-<style>
-.error{
-    color:red
-  }
-</style>
-</head>
 <body>
+<%@ include file="header.jsp" %>
+<%@ include file="menu.jsp" %>
+
     <div align="center">
         <h2>User Registration</h2>
         <form:form action="register" method="post" modelAttribute="user">
@@ -38,7 +30,7 @@
             <form:password path="password"/><br/>
             <form:errors cssClass="error" path="password"/><br/>
 
-            <form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
+            Profession:<form:select path="profession" items="${professionList}" itemValue="id" itemLabel="name" />
             <br><br>
 
            <input type="submit" value="Submit"/>

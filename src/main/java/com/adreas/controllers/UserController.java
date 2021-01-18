@@ -81,6 +81,9 @@ public class UserController {
         boolean isNotValid = bindingResult.hasErrors();
 
         if(isNotValid){
+            List professionList = professionService.showProfession();
+            model.addAttribute("professionList", professionList);
+
             return "register_form";
         }else{
             User save = userService.saveUser(user);
@@ -91,11 +94,14 @@ public class UserController {
 
 
     @GetMapping("/delete")
-    public String deleteMyUser(@RequestParam("userid") Integer id){
+    public String deleteMyUser(Model model,@RequestParam("userid") Integer id){
 
         userService.deleteUserById(id);
+        List userList = userService.getAllUsers();
+        model.addAttribute("list",userList);
 
-        return "redirect:" + "userlist";
+
+        return "redirect:" + "/userlist";
     }
 
 

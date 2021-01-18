@@ -76,6 +76,6 @@ public class ProfessionController {
 
         model.addAttribute("listp",professionList);
 
-        return "profession_list";
+        return "redirect:" + "professionlist";
     }
 }
