@@ -7,13 +7,15 @@
 <h2>Professions found</h2>
 <table border="1">
      <tr>
-     <th>ID</th>
+     <th>View</th>
+     <th>Delete</th>
      <th>Name</th>
      </tr>
 
      <c:forEach items="${listp}" var="profession">
                       <tr>
-                         <td><a href="view?professionid=${profession.id}">view profession</a>,<a href="erase?professionid=${profession.id}">Delete profession</td>
+                         <td><a href="view?professionid=${profession.id}">view profession</a></td>
+                         <td><a href="erase?professionid=${profession.id}">Delete profession</td>
                         <td><c:out value="${profession.name}"/></td>
                       </tr>
 

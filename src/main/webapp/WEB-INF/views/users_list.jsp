@@ -8,7 +8,8 @@
 <h2>users found</h2>
 <table border="1">
      <tr>
-     <th>Id</th>
+     <th>Edit</th>
+     <th>Delete</th>
      <th>Name</th>
      <th>Surname</th>
      <th>Password</th>
@@ -18,7 +19,8 @@
      </tr>
      <c:forEach items="${list}" var="user">
             <tr>
-              <td border="1"><a href="edit?userid=${user.id}">edit user</a>,<a href="delete?userid=${user.id}">delete user</a></td>
+              <td><a href="edit?userid=${user.id}">edit user</a></td>
+              <td><a href="delete?userid=${user.id}">delete user</a></td>
 
 
               <td><c:out value="${user.name}"/></td>

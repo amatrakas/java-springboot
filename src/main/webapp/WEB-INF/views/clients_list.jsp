@@ -8,7 +8,8 @@
 <h2>Clients found</h2>
 <table border="1">
      <tr>
-     <th>ID</th>
+     <th>Review</th>
+     <th>Remove</th>
      <th>Firstname</th>
      <th>Lastname</th>
      <th>Gender</th>
@@ -19,7 +20,8 @@
 
       <c:forEach items="${listc}" var="client">
                  <tr>
-                    <td><a href="review?clientid=${client.id}">review client</a>,<a href="remove?clientid=${client.id}"</a>remove client</td>
+                    <td><a href="review?clientid=${client.id}">review client</a></td>
+                    <td><a href="remove?clientid=${client.id}"</a>remove client</td>
                    <td><c:out value="${client.firstname}"/></td>
                    <td><c:out value="${client.lastname}"/></td>
                    <td><c:out value="${client.gender}"/></td>
