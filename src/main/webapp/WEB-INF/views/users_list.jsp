@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="header.jsp" %>
 <%@ include file="menu.jsp" %>
-<body>
+<%@ include file="header.jsp" %>
 <h2>users found</h2>
 <table border="1">
      <tr>
@@ -38,6 +35,4 @@
 
 
 <%@ include file="footer.jsp" %>
-</body>
 
-    </html>

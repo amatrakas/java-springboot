@@ -1,10 +1,5 @@
- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
- <title>Fill your Profession</title>
- <body>
- <%@ include file="header.jsp" %>
- <%@ include file="menu.jsp" %>
+<%@ include file="menu.jsp" %>
+<%@ include file="header.jsp" %>
 
      <div align="center">
          <h2>Fill your profession</h2>
@@ -22,5 +17,3 @@
 
          </form:form>
      </div>
- </body>
- </html>

@@ -1,11 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<title>My New Form</title>
-<body>
-<%@ include file="header.jsp" %>
 <%@ include file="menu.jsp" %>
+<%@ include file="header.jsp" %>
 
     <div align="center">
         <h2>New Form</h2>
@@ -48,5 +42,4 @@
 
       </div>
 
-           </body>
-        </html>
+

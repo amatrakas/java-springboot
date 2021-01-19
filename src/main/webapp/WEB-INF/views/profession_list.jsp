@@ -1,9 +1,7 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<body>
-<%@ include file="header.jsp" %>
 <%@ include file="menu.jsp" %>
+<%@ include file="header.jsp" %>
 <h2>Professions found</h2>
 <table border="1">
      <tr>
@@ -25,6 +23,5 @@
      <p>${updated}</p>
      <p>${created}</p>
      <%@ include file="footer.jsp" %>
-     </body>
-     </html>
+
 
