@@ -36,7 +36,7 @@ public class ClientController {
 
         model.addAttribute("client", client );
 
-        return "client_form";
+        return "clients/client_form";
     }
 
     @GetMapping("/review")
@@ -51,7 +51,7 @@ public class ClientController {
 
         professionService.findProfession(id);
 
-        return "client_form";
+        return "clients/client_form";
 
 
     }
@@ -66,11 +66,11 @@ public class ClientController {
             List professionList = professionService.showProfession();
 
             model.addAttribute("professionList", professionList);
-            return  "client_form";
+            return  "clients/client_form";
         }else{
             clientService.saveClient(client);
         }
-        return "redirect:" + "clientlist";
+        return "redirect:" + "/clientlist";
     }
 
     @GetMapping("/remove")
@@ -88,6 +88,6 @@ public class ClientController {
         List clientList = clientService.findClients();
         model.addAttribute("listc",clientList);
 
-        return "clients_list";
+        return "clients/clients_list";
     }
 }

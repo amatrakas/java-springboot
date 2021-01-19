@@ -32,12 +32,12 @@ public class WelcomeController {
         if(!(registeredUser==null)){
             model.addAttribute("hello",welcome);
 
-            return "welcome";
+            return "users/welcome";
 
         }else {
             model.addAttribute("error",registrationError);
 
-            return "index";
+            return "users/index";
         }
 
     }

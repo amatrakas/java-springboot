@@ -1,5 +1,5 @@
-<%@ include file="menu.jsp" %>
-<%@ include file="header.jsp" %>
+<%@ include file="../commons/menu.jsp" %>
+<%@ include file="../commons/header.jsp" %>
 
     <div align="center">
         <h2>User Registration</h2>
@@ -31,7 +31,7 @@
             <br><br>
 
            <input type="submit" value="Submit"/>
-            <%@ include file="footer.jsp" %>
+            <%@ include file="../commons/footer.jsp" %>
            </form:form>
 
        </div>

@@ -28,7 +28,7 @@ public class ProfessionController {
 
         model.addAttribute("profession",profession);
 
-        return "profession_form";
+        return "professions/profession_form";
     }
 
     @GetMapping("/view")
@@ -38,17 +38,17 @@ public class ProfessionController {
 
         model.addAttribute("profession",professionById);
 
-        return "profession_form";
+        return "professions/profession_form";
 
 
     }
 
     @PostMapping("/profession")
-    public String submitMyForm(Model model, @ModelAttribute("profession") @Valid Profession profession, BindingResult bindingResult){
+    public String submitMyForm(@ModelAttribute("profession") @Valid Profession profession, BindingResult bindingResult){
         boolean notValid = bindingResult.hasErrors();
 
         if(notValid){
-            return "profession_form";
+            return "professions/profession_form";
         }else {
             professionService.saveProfession(profession);
         }
@@ -63,7 +63,7 @@ public class ProfessionController {
 
         model.addAttribute("listp",professionList);
 
-        return "profession_list";
+        return "professions/profession_list";
 
 
     }

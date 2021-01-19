@@ -1,5 +1,5 @@
-<%@ include file="menu.jsp" %>
-<%@ include file="header.jsp" %>
+<%@ include file="../commons/menu.jsp" %>
+<%@ include file="../commons/header.jsp" %>
 
     <div align="center">
         <h2>New Form</h2>
@@ -20,7 +20,7 @@
                 Female <form:radiobutton path="gender" value="female"/>
                 Other <form:radiobutton path="gender"  value="other"/>
                 <br><br>
-                <form:label path = "address">Address</form:label>
+                <form:label path ="address">Address</form:label>
                 <form:textarea path = "address" rows = "5" cols = "30"/>
                 <br>
                 Cars:
@@ -36,7 +36,7 @@
 
 
            <input type="submit" value="Submit"/>
-            <%@ include file="footer.jsp" %>
+            <%@ include file="../commons/footer.jsp" %>
            </form:form>
 
 

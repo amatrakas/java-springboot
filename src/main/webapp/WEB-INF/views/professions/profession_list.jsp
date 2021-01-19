@@ -1,7 +1,7 @@
 <%@ page import="java.util.List"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="menu.jsp" %>
-<%@ include file="header.jsp" %>
+<%@ include file="../commons/menu.jsp" %>
+<%@ include file="../commons/header.jsp" %>
 <h2>Professions found</h2>
 <table border="1">
      <tr>
@@ -22,6 +22,6 @@
      </table>
      <p>${updated}</p>
      <p>${created}</p>
-     <%@ include file="footer.jsp" %>
+     <%@ include file="../commons/footer.jsp" %>
 
 

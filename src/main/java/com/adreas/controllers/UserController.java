@@ -39,7 +39,7 @@ public class UserController {
 
 
 
-        return "register_form";
+        return "users/register_form";
     }
 
     /**
@@ -62,7 +62,7 @@ public class UserController {
         List professionList = professionService.showProfession();
         model.addAttribute("professionList", professionList);
 
-        return "register_form";
+        return "users/register_form";
     }
 
     /**
@@ -84,7 +84,7 @@ public class UserController {
             List professionList = professionService.showProfession();
             model.addAttribute("professionList", professionList);
 
-            return "register_form";
+            return "users/register_form";
         }else{
             User save = userService.saveUser(user);
         }
@@ -112,7 +112,7 @@ public class UserController {
         List userList = userService.getAllUsers();
         model.addAttribute("list",userList);
 
-        return "users_list";
+        return "users/users_list";
     }
 
 
